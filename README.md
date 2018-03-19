@@ -1,5 +1,7 @@
 # Packer templates for Ubuntu
 
+Note: This version is optimized for NIST UCEF builds 20180319
+
 ### Overview
 
 This repository contains [Packer](https://packer.io/) templates for creating Ubuntu Vagrant boxes.
