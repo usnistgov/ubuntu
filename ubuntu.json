@@ -84,7 +84,9 @@
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "10000s",
-      "type": "virtualbox-iso",
+       "ssh_host_port_min": "2222",
+       "ssh_host_port_max": "2222",
+       "type": "virtualbox-iso",
       "vboxmanage": [
         [
           "modifyvm", "{{.Name}}", "--nictype1", "virtio"
@@ -94,6 +96,9 @@
         ],
         [
           "modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}"
+        ],
+        [
+          "modifyvm", "{{.Name}}", "--natpf1", "guest_ssh,tcp,,2222,,22"
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
